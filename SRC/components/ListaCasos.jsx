@@ -6,10 +6,10 @@ function ListaCasos() {
     <section className="seccion" id="casos">
       <h2>Casos Registrados</h2>
       <div className="grid-casos">
-       {casos.map((evidencia) => (
+        {casos.map((caso) => (
           <CasoCard
-            key={evidencia.id}
-            titulo={evidencia.titulo}
+            key={caso.id}
+            titulo={caso.titulo}
             descripcion={caso.descripcion}
             año={caso.año}
             link={caso.link}

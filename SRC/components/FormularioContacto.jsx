@@ -3,7 +3,7 @@ import { useState } from 'react';
 function FormularioContacto() {
   const [nombre, setNombre] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const [enviado, setEnviado] = useState(false);
+  const [casoRegistrado, setCasoRegistrado] = useState(false);
 
   const manejarEnvio = (e) => {
     e.preventDefault(); 
@@ -16,7 +16,7 @@ function FormularioContacto() {
     console.log('Nombre transformado:', nombreTransformado);
     console.log('Mensaje:', mensaje);
 
-    setEnviado(true);
+    setcasoregistrado(true);
     setNombre('');
     setMensaje('');
 
@@ -47,7 +47,7 @@ function FormularioContacto() {
 
         <button type="submit">ENVIAR AL VACÍO</button>
 
-        {enviado && (
+        {casoRegistrado && ...}
           <p className="mensaje-exito">✓ Tu caso fue registrado en frecuencia cero.</p>
         )}
       </form>

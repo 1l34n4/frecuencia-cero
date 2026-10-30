@@ -4,7 +4,7 @@ function ApiGenerador() {
   const [imagen, setImagen] = useState('');
   const [cargando, setCargando] = useState(true);
 
-  const obtenerArchivo = () => {
+  const buscarEvidenciaPerdida = async () => {
     setCargando(true);
     // Usamos la API de Lorem Picsum (está en la lista de public-apis)
     // Le agregamos un número aleatorio para que no se repita
@@ -42,7 +42,7 @@ function ApiGenerador() {
           />
           <br/>
           <button 
-            onClick={obtenerArchivo} 
+            onClick={buscarEvidenciaPerdida} 
             className="btn-video" 
             style={{ marginTop: '1rem', width: '100%' }}
           >

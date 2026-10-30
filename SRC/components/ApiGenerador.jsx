@@ -4,23 +4,15 @@ function ApiGenerador() {
   const [imagen, setImagen] = useState('');
   const [cargando, setCargando] = useState(true);
 
-  const obtenerArchivo = async () => {
+  const obtenerArchivo = () => {
     setCargando(true);
-    try {
-      // API nativa de la lista (Random Duck)
-      const respuesta = await fetch('https://random-d.uk/api/random');
-      const datos = await respuesta.json();
-      setImagen(datos.url);
-    } catch (error) {
-      console.error("Error al conectar con la API:", error);
-      // Imagen de respaldo por si la API falla
-      setImagen('https://random-d.uk/api/2.jpg');
-    } finally {
-      setCargando(false);
-    }
+    // Usamos la API de Lorem Picsum (está en la lista de public-apis)
+    // Le agregamos un número aleatorio para que no se repita
+    const randomId = Math.floor(Math.random() * 1000);
+    setImagen(`https://picsum.photos/id/${randomId}/400/300?grayscale`);
+    setCargando(false);
   };
 
-  // useEffect para que cargue una imagen apenas abre la página
   useEffect(() => {
     obtenerArchivo();
   }, []);
@@ -39,7 +31,14 @@ function ApiGenerador() {
           <img 
             src={imagen} 
             alt="Archivo recuperado" 
-            style={{ width: '100%', maxWidth: '400px', borderRadius: '8px', border: '2px solid #8b0000' }} 
+            style={{ 
+              width: '100%', 
+              maxWidth: '400px', 
+              borderRadius: '8px', 
+              border: '2px solid #8b0000',
+              // ESTO ES LO MÁGICO: filtro CSS para que parezca de terror
+              filter: 'grayscale(100%) contrast(150%) brightness(50%) sepia(30%) hue-rotate(300deg)' 
+            }} 
           />
           <br/>
           <button 

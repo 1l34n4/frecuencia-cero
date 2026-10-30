@@ -3,24 +3,19 @@ import { useState } from 'react';
 function FormularioContacto() {
   const [nombre, setNombre] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const [casoRegistrado, setCasoRegistrado] = useState(false);
+  const [enviado, setEnviado] = useState(false);
 
   const manejarEnvio = (e) => {
     e.preventDefault(); 
+    setEnviado(true);   
 
-    const nombreTransformado =
-      nombre === nombre.toUpperCase()
-        ? nombre.toLowerCase()
-        : nombre.toUpperCase();
-
+    const nombreTransformado = nombre === nombre.toUpperCase() ? nombre.toLowerCase() : nombre.toUpperCase();
     console.log('Nombre transformado:', nombreTransformado);
     console.log('Mensaje:', mensaje);
 
-    setcasoregistrado(true);
     setNombre('');
     setMensaje('');
-
-    setTimeout(() => setEnviado(false), 3000);
+    setTimeout(() => setEnviado(false), 4000);
   };
 
   return (
@@ -47,7 +42,7 @@ function FormularioContacto() {
 
         <button type="submit">ENVIAR AL VACÍO</button>
 
-        {casoRegistrado && ...}
+        {enviado && (
           <p className="mensaje-exito">✓ Tu caso fue registrado en frecuencia cero.</p>
         )}
       </form>

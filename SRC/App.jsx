@@ -1,9 +1,8 @@
-import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ListaCasos from './components/ListaCasos';
-import ApiGenerador from './components/ApiGenerador';
 import FormularioContacto from './components/FormularioContacto';
+import ApiGenerador from './components/ApiGenerador'; // <-- NUEVO
 import DemoTP1 from './components/DemoTP1';
 import Footer from './components/Footer';
 
@@ -13,7 +12,7 @@ function App() {
       <Navbar />
       <Hero />
       <ListaCasos />
-      <ApiGenerador />
+      <ApiGenerador /> {/* <-- NUEVO */}
       <FormularioContacto />
       <DemoTP1 />
       <Footer />

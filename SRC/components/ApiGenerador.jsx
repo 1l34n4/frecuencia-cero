@@ -4,24 +4,22 @@ function ApiGenerador() {
   const [imagen, setImagen] = useState('');
   const [cargando, setCargando] = useState(true);
 
-  const buscarEvidenciaPerdida = async () => {
+  const buscarEvidenciaPerdida = () => {
     setCargando(true);
-    // Usamos la API de Lorem Picsum (está en la lista de public-apis)
-    // Le agregamos un número aleatorio para que no se repita
     const randomId = Math.floor(Math.random() * 1000);
     setImagen(`https://picsum.photos/id/${randomId}/400/300?grayscale`);
     setCargando(false);
   };
 
   useEffect(() => {
-    obtenerArchivo();
+    buscarEvidenciaPerdida();
   }, []);
 
   return (
     <section className="seccion" id="api" style={{ textAlign: 'center' }}>
-      <h2>Archivo Recuperado de la Deep Web</h2>
+      <h2>Evidencia Forense Recuperada</h2>
       <p style={{ color: '#888', marginBottom: '1rem' }}>
-        Cada vez que actualices, el sistema buscará un archivo distinto al azar.
+        Los servidores están inestables. Refrescá la página si te animás a ver otro archivo.
       </p>
       
       {cargando ? (
@@ -36,7 +34,6 @@ function ApiGenerador() {
               maxWidth: '400px', 
               borderRadius: '8px', 
               border: '2px solid #8b0000',
-              // ESTO ES LO MÁGICO: filtro CSS para que parezca de terror
               filter: 'grayscale(100%) contrast(150%) brightness(50%) sepia(30%) hue-rotate(300deg)' 
             }} 
           />
